@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row vh-100 justify-content-center align-items-center">
+        <form class="border" style="width: 30%; background-color: rgb(231, 239, 247);" [formGroup]="form" (ngSubmit)="onSubmit()">
+            <label style="color:rgb(148, 142, 142);font-size: 13px;">Todos los campos son obligatorios</label>
+            <div class="mb-3 form-group">
+              <label  class="form-label" style="color: rgb(32, 32, 199);">Tipo de documento</label>
+              <select formControlName="type" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['type'].errors }" required>
+                <option></option>
+                <option value="C">Cédula de ciudadanía</option>
+                <option value="P">Pasaporte</option>
+              </select>
+              <div *ngIf="submitted && f['type'].errors" class="invalid-feedback">
+                <div *ngIf="f['type'].errors['required']">Type Document is required</div>
+              </div>
+            </div>
+            <div class="mb-3 form-group">
+                <label for="exampleInputEmail1" class="form-label" style="color: rgb(32, 32, 199);">Número de documento</label>
+                <input type="number" class="form-control" formControlName="document" [ngClass]="{ 'is-invalid': submitted && f['document'].errors }" maxlength="11" minlength="8" required>
+                <div *ngIf=" submitted && f['document'].errors" class="invalid-feedback">
+                    <div *ngIf="f['document'].errors['required']">Document is required</div>
+                    <div *ngIf="f['document'].errors['min']">
+                        Document must be at least 8 characters
+                    </div>
+                    <div *ngIf="f['document'].errors['max']">
+                        Document must not exceed 11 characters
+                    </div>
+                  </div>
+            </div>
+            <div class="form-group" style="text-align: center;">
+            <button type="submit" [disabled]="form.invalid"  class="btn  btn-circle" style="margin-bottom: 2%;background-color: rgb(2, 2, 139);width: 70%;color: white;">Buscar</button>
+        </div>
+          </form>
+    </div>
+</div>

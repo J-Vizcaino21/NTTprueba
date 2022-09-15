@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row vh-100 justify-content-center align-items-center">
+        <form class="border" style="width: 30%; " >
+            <label style="color:rgb(71, 66, 66);font-size: 22px;font-weight: bold;">Información básica</label>
+            <div class="mb-3">
+              <label  class="form-label" style="color: gray;">Primer apellido</label>
+              <input type="text" class="form-control" style="color: black;" [(ngModel)]="primerapellido" name="primerapellido" [ngModelOptions]="{standalone: true}" readonly>
+            </div>
+            <div class="mb-3">
+              <label  class="form-label" style="color: gray;">Primer nombre</label>
+              <input type="text" class="form-control" style="color: black;" [(ngModel)]="primernombre" name="primernombre" [ngModelOptions]="{standalone: true}" readonly>
+            </div>
+            <div style="text-align: center;">
+            <button type="submit" [routerLink]="['/']"   class="btn  btn-circle" style="margin-bottom: 2%;background-color: rgb(2, 2, 139);width: 70%;color: white;">Volver</button>
+        </div>
+          </form>
+    </div>
+</div>
